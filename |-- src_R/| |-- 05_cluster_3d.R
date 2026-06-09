@@ -10,16 +10,16 @@ hitung_jarak <- function(x1, x2, x3) {
     )
   )
 }
-hasil_jarak <- hitung_jarak(2, 5, 6)
+hasil_jarak <- hitung_jarak(1, 2, 3)
 print(hasil_jarak)
 
 cluster <- function(hasil_jarak) {
   if (hasil_jarak$jarak_UA < hasil_jarak$jarak_UB & hasil_jarak$jarak_UA < hasil_jarak$jarak_UC) {
-    cat("anggota cluster A")
+    cat("titik U termasuk anggota cluster A")
   } else if (hasil_jarak$jarak_UB < hasil_jarak$jarak_UA & hasil_jarak$jarak_UB < hasil_jarak$jarak_UC) {
-    cat("anggota cluster B")
+    cat("titik U termasuk anggota cluster B")
   } else {
-    cat("anggota cluster C")
+    cat("titik U termasuk anggota cluster C")
   }
 }
 cluster(hasil_jarak)
