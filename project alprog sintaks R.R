@@ -46,7 +46,7 @@ nilai_koefisien <- function(a, b, c) {
     cat("x2 =", x2)
   }
 }
-nilai_koefisien(1, 0, -4)
+nilai_koefisien(5, 76, 69)
 nilai_koefisien(1, -4, 4)
 nilai_koefisien(1, 2, 2)
 
