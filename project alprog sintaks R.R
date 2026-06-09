@@ -1,3 +1,21 @@
+#program 1
+# Input teks
+teks <- ""
+
+# Menghitung jumlah kata
+kata <- unlist(strsplit(teks, " "))
+jumlah_kata <- length(kata)
+
+# Menghitung jumlah kalimat
+kalimat <- unlist(strsplit(teks, "\\."))
+jumlah_kalimat <- sum(trimws(kalimat) != "")
+
+# Menampilkan hasil
+cat("Teks:\n")
+cat(teks, "\n\n")
+cat("Jumlah kata =", jumlah_kata, "\n")
+cat("Jumlah kalimat =", jumlah_kalimat, "\n")
+
 #program 2
 K1 <- "Saya tak 'kan menyerah."
 K2 <- 'Ia berkata, "Aku menyayangimu."'
