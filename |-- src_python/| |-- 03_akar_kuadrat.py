@@ -37,6 +37,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-#2x^2+5x-7
-#6x^2+5x-20
-#10x^2+7x-9
+# kondisi 1: 2x^2+5x-7
+# kondisi 2: 6x^2+5x-20
+# kondisi 3: 10x^2+7x-9
