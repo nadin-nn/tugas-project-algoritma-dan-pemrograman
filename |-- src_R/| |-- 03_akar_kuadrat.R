@@ -39,3 +39,6 @@ main <- function() {
 
 main()
 
+# kondisi 1: 2x^2+5x-7
+# kondisi 2: 6x^2+5x-20
+# kondisi 3: 10x^2+7x-9
