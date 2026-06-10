@@ -11,6 +11,9 @@ x2 = float(input("Masukkan x2: "))
 x3 = float(input("Masukkan x3: "))
 
 U = (x1, x2, x3)
+# kondisi 1: U = (1, 2, 3)
+# kondisi 2: U = (2, 2, 2)
+# kondisi 3: U = (7, 10, 6)
 
 # Fungsi menghitung jarak
 def jarak(P, Q):
