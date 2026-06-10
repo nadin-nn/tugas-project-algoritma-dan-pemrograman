@@ -41,5 +41,5 @@ main <- function() {
 main()
 
 # kondisi 1 tidak valid: a=0, b=2, c=4
-# kondisi 2 akar imajiner: a=1, b=0, c=1
+# kondisi 2 akar imajiner: a=2, b=5, c=7
 # kondisi 3 akar real: a=1, b=-2, c=-3
