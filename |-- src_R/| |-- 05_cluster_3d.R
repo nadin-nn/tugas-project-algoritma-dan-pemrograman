@@ -26,10 +26,12 @@ tentukan_cluster <- function(x1, x2, x3) {
   cat(sprintf("- Jarak ke Cluster B: %.4f\n", jarak_B))
   cat(sprintf("- Jarak ke Cluster C: %.4f\n", jarak_C))
   
+  # --------------------------------------------------------
   # VALIDASI KONDISI SERI (JARAK SAMA)
+  # --------------------------------------------------------
   # Jika A sama dengan B, ATAU A sama dengan C, ATAU B sama dengan C
   if (jarak_A == jarak_B || jarak_A == jarak_C || jarak_B == jarak_C) {
-    cat("Hasil: Terdapat jarak yang sama (Seri), output INVALID\n\n")
+    cat("Hasil: Terdapat jarak yang sama (Seri), kondisi khusus\n\n")
   } else if (jarak_A < jarak_B && jarak_A < jarak_C) {
     cat("Hasil: Titik U tergolong dalam CLUSTER A\n\n")
   } else if (jarak_B < jarak_C) {
