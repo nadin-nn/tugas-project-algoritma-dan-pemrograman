@@ -37,6 +37,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-# kondisi 1: 2x^2+5x-7
-# kondisi 2: 6x^2+5x-20
-# kondisi 3: 10x^2+7x-9
+# kondisi 1 tidak valid: a=0, b=2, c=4
+# kondisi 2 akar imajiner: a=2, b=5, c=7
+# kondisi 3 akar real: a=1, b=-2, c=-3
