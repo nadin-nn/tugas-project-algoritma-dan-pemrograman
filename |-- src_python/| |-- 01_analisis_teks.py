@@ -1,32 +1,22 @@
-def hitung_kata_kalimat(teks):
-    """
-    Fungsi untuk menghitung jumlah kalimat dan jumlah kata dalam sebuah teks.
-    Asumsi: tanda titik hanya digunakan untuk mengakhiri kalimat.
-    """
-    # Menghitung jumlah kalimat berdasarkan tanda titik
+def hitung_kata_dan_kalimat(teks):
+    # 1. Menghitung jumlah kalimat
+    # Karena tanda titik (.) hanya digunakan untuk mengakhiri kalimat,
+    # kita cukup menghitung berapa banyak tanda titik yang ada.
     jumlah_kalimat = teks.count('.')
+    
+    # 2. Menghitung jumlah kata
+    # Kita memecah teks berdasarkan spasi menggunakan method split()
+    daftar_kata = teks.split()
+    jumlah_kata = len(daftar_kata)
+    
+    return jumlah_kata, jumlah_kalimat
 
-    # Menghapus tanda titik untuk mempermudah pemisahan kata
-    teks_tanpa_titik = teks.replace('.', '')
+# Input teks secara dinamis dari pengguna
+teks_input = input("> masukkan teks: ")
 
-    # Memisahkan teks menjadi kata-kata berdasarkan spasi
-    # Metode split() tanpa argumen akan memisahkan berdasarkan spasi, newline, tab
-    list_kata = teks_tanpa_titik.split()
-    jumlah_kata = len(list_kata)
+# Memanggil fungsi untuk menghitung
+kata, kalimat = hitung_kata_dan_kalimat(teks_input)
 
-    return jumlah_kalimat, jumlah_kata
-
-def main():
-    print("=== Program Analisis Teks ===")
-    teks = input("Masukkan teks: ")
-
-    # Validasi input kosong
-    if teks.strip() == "":
-        print("Error: Teks tidak boleh kosong!")
-        return
-
-    kalimat, kata = hitung_kata_kalimat(teks)
-    print(f"\nTeks tersebut memuat {kalimat} kalimat dan {kata} kata.")
-
-if __name__ == "__main__":
-    main()
+# Menampilkan hasil
+print(f"Jumlah kata: {kata}")
+print(f"Jumlah kalimat: {kalimat}")
