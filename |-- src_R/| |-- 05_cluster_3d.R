@@ -1,27 +1,44 @@
-hitung_jarak <- function(x1, x2, x3) {
-  jarak_ke_A <- sqrt((x1-2)^2 + (x2-1)^2 + (x3-3)^2)
-  jarak_ke_B <- sqrt((x1-1)^2 + (x2+4)^2 + (x3-6)^2)
-  jarak_ke_C <- sqrt((x1+2)^2 + (x2-3)^2 + (x3+2)^2)
-  return(
-    list(
-      jarak_UA = jarak_ke_A,
-      jarak_UB = jarak_ke_B,
-      jarak_UC = jarak_ke_C
-    )
-  )
-}
-hasil_jarak <- hitung_jarak(1, 2, 3) # kondisi 1
-hasil_jarak <- hitung_jarak(-1, -2, 6) # kondisi 2
-hasil_jarak <- hitung_jarak(-2, 2, -4) # kondisi 3
-print(hasil_jarak)
+# Pusat cluster
+A <- c(2, 1, 3)
+B <- c(1, -4, 6)
+C <- c(-2, 3, -2)
 
-cluster <- function(hasil_jarak) {
-  if (hasil_jarak$jarak_UA < hasil_jarak$jarak_UB & hasil_jarak$jarak_UA < hasil_jarak$jarak_UC) {
-    cat("titik U termasuk anggota cluster A")
-  } else if (hasil_jarak$jarak_UB < hasil_jarak$jarak_UA & hasil_jarak$jarak_UB < hasil_jarak$jarak_UC) {
-    cat("titik U termasuk anggota cluster B")
-  } else {
-    cat("titik U termasuk anggota cluster C")
-  }
+# Titik uji
+U1 <- c(1, 2, 3)
+U2 <- c(1, -3, 5)
+U3 <- c(-1, 3, -1)
+
+# Fungsi untuk menghitung jarak Euclidean 3D
+jarak <- function(P, Q) {
+  sqrt(sum((P - Q)^2))
 }
-cluster(hasil_jarak)
+
+# Fungsi untuk klasifikasi
+klasifikasi <- function(U) {
+  dA <- jarak(U, A)
+  dB <- jarak(U, B)
+  dC <- jarak(U, C)
+  
+  # Menentukan cluster terdekat
+  if (dA <= dB && dA <= dC) {
+    cluster <- "A"
+  } else if (dB <= dA && dB <= dC) {
+    cluster <- "B"
+  } else {
+    cluster <- "C"
+  }
+  
+  cat("Titik U =", paste(U, collapse=", "), "\n")
+  cat("Jarak ke A =", round(dA, 3), "\n")
+  cat("Jarak ke B =", round(dB, 3), "\n")
+  cat("Jarak ke C =", round(dC, 3), "\n")
+  cat("Masuk Cluster", cluster, "\n")
+  cat(rep("-", 30), "\n")
+}
+
+# Tiga kondisi
+klasifikasi(U1)
+klasifikasi(U2)
+klasifikasi(U3)
+
+
