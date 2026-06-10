@@ -10,9 +10,9 @@ hitung_jarak <- function(x1, x2, x3) {
     )
   )
 }
-hasil_jarak <- hitung_jarak(1, 2, 3)
-hasil_jarak <- hitung_jarak(2, 2, 2)
-hasil_jarak <- hitung_jarak(7, 10, 6)
+hasil_jarak <- hitung_jarak(1, 2, 3) # kondisi 1
+hasil_jarak <- hitung_jarak(2, 2, 2) # kondisi 2
+hasil_jarak <- hitung_jarak(7, 10, 6) # kondisi 3
 print(hasil_jarak)
 
 cluster <- function(hasil_jarak) {
