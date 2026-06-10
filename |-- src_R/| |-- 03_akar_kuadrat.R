@@ -1,44 +1,45 @@
 hitung_akar <- function(a, b, c) {
+  
+  if (a == 0) {
+    return("Tidak valid (a = 0)")
+  }
+  
   D <- b^2 - 4*a*c
+  
   if (D < 0) {
-    return(list(real = FALSE, x1 = NA, x2 = NA))
+    return("Akar imajiner")
   } else if (D == 0) {
-    x <- -b / (2*a)
-    return(list(real = TRUE, x1 = x, x2 = x))
+    x <- -b/(2*a)
+    return(paste("Akar kembar =", round(x, 3)))
   } else {
-    x1 <- (-b + sqrt(D)) / (2*a)
-    x2 <- (-b - sqrt(D)) / (2*a)
-    return(list(real = TRUE, x1 = x1, x2 = x2))
+    x1 <- (-b + sqrt(D))/(2*a)
+    x2 <- (-b - sqrt(D))/(2*a)
+    return(paste("x1 =", round(x1, 3),
+                 ", x2 =", round(x2, 3)))
   }
 }
 
 main <- function() {
-  cat("=== Program Akar Persamaan Kuadrat ===\n")
-  a <- as.numeric(readline("Masukkan a: "))
-  b <- as.numeric(readline("Masukkan b: "))
-  c <- as.numeric(readline("Masukkan c: "))
   
-  if (any(is.na(c(a, b, c)))) {
-    cat("Input harus berupa angka!\n")
-    return(invisible(NULL))
-  }
-  if (a == 0) {
-    cat("Error: a tidak boleh 0 (bukan persamaan kuadrat)\n")
-    return(invisible(NULL))
-  }
-  
-  hasil <- hitung_akar(a, b, c)
-  if (!hasil$real) {
-    cat("Persamaan kuadrat hanya memiliki akar-akar imajiner.\n")
-  } else if (hasil$x1 == hasil$x2) {
-    cat(sprintf("Akar kembar: x = %.3f\n", hasil$x1))
-  } else {
-    cat(sprintf("Akar-akar real: x1 = %.3f, x2 = %.3f\n", hasil$x1, hasil$x2))
+  for(i in 1:3){
+    
+    cat("\nPersamaan ke-", i, "\n")
+    
+    a <- as.numeric(readline("Masukkan a: "))
+    b <- as.numeric(readline("Masukkan b: "))
+    c <- as.numeric(readline("Masukkan c: "))
+    
+    if(any(is.na(c(a,b,c)))){
+      cat("Input harus angka!\n")
+    } else {
+      hasil <- hitung_akar(a,b,c)
+      cat("Hasil:", hasil, "\n")
+    }
   }
 }
 
 main()
 
-# kondisi 1: 2x^2+5x-7
-# kondisi 2: 6x^2+5x-20
-# kondisi 3: 10x^2+7x-9
+# kondisi 1 tidak valid: a=0, b=2, c=4
+# kondisi 2 akar imajiner: a=1, b=0, c=1
+# kondisi 3 akar real: a=1, b=-2, c=-3
