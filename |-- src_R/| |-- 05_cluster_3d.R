@@ -1,42 +1,47 @@
-# 1. DEFINISI FUNGSI UTAMA (DENGAN VALIDASI TIPE DATA)
+# 1. DEFINISI FUNGSI UTAMA (DENGAN DETAIL JARAK SERI)
+
 tentukan_cluster <- function(x1, x2, x3) {
   
   # VALIDASI 1: PASTIKAN SEMUA INPUT ADALAH ANGKA MURNI
-  # is.numeric() mengecek apakah input berupa tipe data numerik
   if (!is.numeric(x1) || !is.numeric(x2) || !is.numeric(x3)) {
     cat("Hasil: Input tidak valid (Harus berupa angka!)\n\n")
-    return() # Keluar dari fungsi secara prematur agar tidak crash di bawahnya
+    return()
   }
   
-  # Tetapkan koordinat pusat cluster tetap di dalam fungsi
   A <- c(2, 1, 3)
   B <- c(1, -4, 6)
   C <- c(-2, 3, -2)
-  
-  # Gabungkan parameter menjadi vektor U
   U <- c(x1, x2, x3)
   
-  # Fungsi internal untuk menghitung jarak Euclidean
   kira_jarak <- function(titik1, titik2) {
     return(sqrt(sum((titik1 - titik2)^2)))
   }
   
-  # Hitung jarak dari U ke setiap cluster
   jarak_A <- kira_jarak(U, A)
   jarak_B <- kira_jarak(U, B)
   jarak_C <- kira_jarak(U, C)
   
-  # Cetak informasi titik dan jarak
   cat(sprintf("Menguji Titik U: (%.1f, %.1f, %.1f)\n", x1, x2, x3))
   cat(sprintf("- Jarak ke Cluster A: %.4f\n", jarak_A))
   cat(sprintf("- Jarak ke Cluster B: %.4f\n", jarak_B))
   cat(sprintf("- Jarak ke Cluster C: %.4f\n", jarak_C))
   
-  # VALIDASI 2: KONDISI SERI (JARAK SAMA)
+  # VALIDASI 2: DETEKSI DAN JELASKAN JARAK YANG SAMA (SERI)
   if (jarak_A == jarak_B || jarak_A == jarak_C || jarak_B == jarak_C) {
-    cat("Hasil: Terdapat jarak yang sama (Seri), kondisi khusus\n\n")
     
-    # JIKA AMAN, CARI JARAK TERDEKAT
+    # Buat wadah teks untuk menampung info cluster yang sama
+    kembar <- c()
+    
+    if (jarak_A == jarak_B) kembar <- c(kembar, "Cluster A dan Cluster B")
+    if (jarak_A == jarak_C) kembar <- c(kembar, "Cluster A dan Cluster C")
+    if (jarak_B == jarak_C) kembar <- c(kembar, "Cluster B dan Cluster C")
+    
+    # Gabungkan teks jika ada lebih dari satu kombinasi yang kembar
+    info_kembar <- paste(kembar, collapse = " DAN ")
+    
+    cat(sprintf("Hasil: KONDISI KHUSUS! Jarak yang sama ditemukan pada yaitu: %s\n\n", info_kembar))
+    
+    # JIKA AMAN (TIDAK ADA YANG SERI), CARI JARAK TERDEKAT
   } else if (jarak_A < jarak_B && jarak_A < jarak_C) {
     cat("Hasil: Titik U tergolong dalam CLUSTER A\n\n")
   } else if (jarak_B < jarak_C) {
@@ -46,13 +51,13 @@ tentukan_cluster <- function(x1, x2, x3) {
   }
 }
 
-# 2. UJI COBA BERBAGAI KONDISI
+# 2. UJI COBA KONDISI SERI YANG BERBEDA
 
-# 1. Tes Input Teks/String (Keluar pesan error input tanpa membuat R crash)
+# Kasus 1: Titik tengah antara A dan B (Jarak A dan B sama)
 tentukan_cluster(1.5, "dua", 4.5)
 
-# 2. Tes Jarak Seri (Menghasilkan pesan kondisi khusus)
-tentukan_cluster(1.5, -1.5, 4.5)
+# Kasus 2: Titik tengah antara B dan C (Jarak B dan C sama)
+tentukan_cluster(-0.5, -0.5, 2.0)
 
-# 3. Tes Titik Normal (Berjalan lancar)
+# Kasus 3: Titik tengah antara A, B, dan C sekaligus (Triple Seri)
 tentukan_cluster(3, 2, 5)
