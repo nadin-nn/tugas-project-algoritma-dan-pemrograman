@@ -42,4 +42,11 @@ else:
     print("Tanggal Lahir ASN :", tanggal, nama_bulan, tahun)
 
 
-# kon
+# kondisi 1 : valid
+nip = "199804232019031010"
+
+# kondisi 2 : tidak valid
+nip = "202812202310041010"
+
+# kondisi 3 : tidak valid
+nip = "200215021712569810"
