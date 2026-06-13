@@ -1,4 +1,4 @@
-nip <- "input_nip"
+nip <- "input_nip_sesuai_kondisi"
 
 tahun <- as.numeric(substr(nip, 1, 4))
 bulan <- as.numeric(substr(nip, 5, 6))
