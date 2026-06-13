@@ -12,23 +12,23 @@ if (tahun < 1900 || tahun > 2025) {
   cat("Tanggal Lahir ASN : Tidak Valid (Tanggal)")
 } else {
   
-  if (bulan == 1) {
+  if (bulan == 01) {
     nama_bulan <- "Januari"
-  } else if (bulan == 2) {
+  } else if (bulan == 02) {
     nama_bulan <- "Februari"
-  } else if (bulan == 3) {
+  } else if (bulan == 03) {
     nama_bulan <- "Maret"
-  } else if (bulan == 4) {
+  } else if (bulan == 04) {
     nama_bulan <- "April"
-  } else if (bulan == 5) {
+  } else if (bulan == 05) {
     nama_bulan <- "Mei"
-  } else if (bulan == 6) {
+  } else if (bulan == 06) {
     nama_bulan <- "Juni"
-  } else if (bulan == 7) {
+  } else if (bulan == 07) {
     nama_bulan <- "Juli"
-  } else if (bulan == 8) {
+  } else if (bulan == 08) {
     nama_bulan <- "Agustus"
-  } else if (bulan == 9) {
+  } else if (bulan == 09) {
     nama_bulan <- "September"
   } else if (bulan == 10) {
     nama_bulan <- "Oktober"
