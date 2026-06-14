@@ -56,8 +56,8 @@ tentukan_cluster <- function(x1, x2, x3) {
 # Kasus 1: Kondisi tidak valid
 tentukan_cluster(1.5, "dua", 4.5)
 
-# Kasus 2: Titik tengah antara B dan C (Jarak B dan C sama)
-tentukan_cluster(-0.5, -0.5, 2.0)
+# Kasus 2: Titik tengah antara A dan B (Jarak A dan B sama)
+tentukan_cluster(1.5, -1.5, 4.5)
 
 # Kasus 3: Kondisi Normal
 tentukan_cluster(3, 2, 5)
