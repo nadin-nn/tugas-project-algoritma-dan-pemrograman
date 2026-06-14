@@ -1,57 +1,42 @@
-library(methods)
-
-hitung_akar <- function(a, b, c) {
-  # Menghitung diskriminan
-  D <- b^2 - 4 * a * c
+hitung_akar_kuadrat <- function(a, b, c) {
   
+  # Kondisi 1: Ketika input a bernilai nol
+  if (a == 0) {
+    cat("Kondisi khusus: Nilai a bernilai nol (bukan persamaan kuadrat).\n")
+    return(invisible(NULL))
+  }
+  
+  # Hitung nilai diskriminan (D)
+  D <- (b^2) - (4 * a * c)
+  
+  # Kondisi 2: Akar imajiner (Diskriminan < 0)
   if (D < 0) {
-    return(list(x1 = NULL, x2 = NULL, real = FALSE)) # imajiner
+    cat("Persamaan tersebut hanya memiliki akar-akar imajiner.\n")
+    
+    # Kondisi 3: Akar kembar (Diskriminan = 0)
   } else if (D == 0) {
     x <- -b / (2 * a)
-    return(list(x1 = x, x2 = x, real = TRUE))
+    cat(sprintf("Persamaan memiliki akar kembar: x1 = x2 = %.3f\n", x))
+    
+    # Kondisi 4: Akar real berbeda (Diskriminan > 0)
   } else {
     x1 <- (-b + sqrt(D)) / (2 * a)
     x2 <- (-b - sqrt(D)) / (2 * a)
-    return(list(x1 = x1, x2 = x2, real = TRUE))
+    cat(sprintf("Persamaan memiliki dua akar real berbeda:\n"))
+    cat(sprintf("x1 = %.3f\n", x1))
+    cat(sprintf("x2 = %.3f\n", x2))
   }
 }
 
-main <- function() {
-  cat("=== Program Akar Persamaan Kuadrat ===\n")
-  
-  # Membaca input dari pengguna
-  a <- as.numeric(readline(prompt = "Masukkan a: "))
-  b <- as.numeric(readline(prompt = "Masukkan b: "))
-  c <- as.numeric(readline(prompt = "Masukkan c: "))
-  
-  # Validasi input harus berupa angka (bukan NA)
-  if (is.na(a) || is.na(b) || is.na(c)) {
-    cat("Input harus berupa angka!\n")
-    return()
-  }
-  
-  # Validasi nilai a tidak boleh 0
-  if (a == 0) {
-    cat("Error: a tidak boleh 0 (bukan persamaan kuadrat)\n")
-    return()
-  }
-  
-  # Memanggil fungsi hitung_akar
-  hasil <- hitung_akar(a, b, c)
-  
-  # Menampilkan hasil sesuai kondisi
-  if (!hasil$real) {
-    cat("Persamaan kuadrat hanya memiliki akar-akar imajiner.\n")
-  } else if (hasil$x1 == hasil$x2) {
-    # %.3f digunakan untuk memformat 3 angka di belakang desimal
-    cat(sprintf("Akar kembar: x = %.3f\n", hasil$x1))
-  } else {
-    cat(sprintf("Akar-akar real: x1 = %.3f, x2 = %.3f\n", hasil$x1, hasil$x2))
-  }
-}
 
-# Menjalankan program utama
-main()
+cat("--- kondisi 1 ---\n")
+hitung_akar_kuadrat(0, 2, 4)
+
+cat("\n--- kondisi 2 ---\n")
+hitung_akar_kuadrat(2, 5, 7)
+
+cat("\n--- kondisi 3 ---\n")
+hitung_akar_kuadrat(1, -2, -3)
 
 # kondisi 1 tidak valid: a=0, b=2, c=4
 # kondisi 2 akar imajiner: a=2, b=5, c=7
