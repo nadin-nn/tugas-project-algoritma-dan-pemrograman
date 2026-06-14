@@ -53,11 +53,11 @@ tentukan_cluster <- function(x1, x2, x3) {
 
 # 2. UJI COBA KONDISI SERI YANG BERBEDA
 
-# Kasus 1: Titik tengah antara A dan B (Jarak A dan B sama)
+# Kasus 1: Kondisi tidak valid
 tentukan_cluster(1.5, "dua", 4.5)
 
 # Kasus 2: Titik tengah antara B dan C (Jarak B dan C sama)
 tentukan_cluster(-0.5, -0.5, 2.0)
 
-# Kasus 3: Titik tengah antara A, B, dan C sekaligus (Triple Seri)
+# Kasus 3: Kondisi Normal
 tentukan_cluster(3, 2, 5)
