@@ -17,6 +17,5 @@ teks_input = input("> masukkan teks: ")
 # Memanggil fungsi untuk menghitung
 kata, kalimat = hitung_kata_dan_kalimat(teks_input)
 
-# Menampilkan hasil
-print(f"Jumlah kata: {kata}")
-print(f"Jumlah kalimat: {kalimat}")
+# Menampilkan hasil dengan format baru
+print(f"Teks memuat {kalimat} kalimat dan {kata} kata")
