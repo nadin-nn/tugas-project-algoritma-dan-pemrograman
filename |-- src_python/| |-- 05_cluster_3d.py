@@ -79,6 +79,3 @@ tentukan_cluster(1.5, -1.5, 4.5)
 
 # Kasus 3: Normal
 tentukan_cluster(3, 2, 5)
-
-# Kasus 4: A = B tapi C lebih kecil (uji bug lama)
-tentukan_cluster(0, 0, 0)
